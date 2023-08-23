@@ -32,12 +32,12 @@ nav:
             - sqs/record.md
     - common/logger.md
     - changes.md
-    - NPM Registry: https://www.npmjs.com/package/@syngenta-digital/alc
+    - NPM Registry: https://www.npmjs.com/package/@syngenta-digital/acai-js
     - Github Repository: https://github.com/syngenta/acai-js
     - Issues: https://github.com/syngenta/acai-js/issues
 theme:
     name: material
-    logo: https://raw.githubusercontent.com/syngenta/acai-python-docs/main/logos/logo-icon-docs.png
+    logo: https://raw.githubusercontent.com/syngenta/acai-js-docs/main/logos/logo-icon-docs.png
     palette:
         -
             scheme: acai
