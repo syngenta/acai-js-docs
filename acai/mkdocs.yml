@@ -1,4 +1,4 @@
-site_name: Acai JS
+site_name: acai-js
 site_url: https://syngenta.github.io/acai-js-docs
 site_author: Paul Cruse III
 site_dir: ../docs
@@ -37,14 +37,12 @@ nav:
     - Issues: https://github.com/syngenta/acai-js/issues
 theme:
     name: material
-    logo: https://avatars.githubusercontent.com/u/65528694?s=200&v=4
+    logo: https://raw.githubusercontent.com/syngenta/acai-python-docs/main/logos/logo-icon-docs.png
     palette:
         -
-            media: "(prefers-color-scheme: light)"
-            scheme: syngenta-light
+            scheme: acai
     highlightjs: true
     hljs_languages:
-        - python
         - javascript
         - yml
     shortcuts:
@@ -91,16 +89,3 @@ extra:
         url: https://syngenta.github.io/acai-js-docs
 extra_css:
     - extra.css
-
-### colors ###
-# blue: #01004C
-# green: #70D979
-# text: white
-# dark mode:
-    # bg: blue
-    # text: white
-    # links: green
-# light mode:
-    # bg: white
-    # text: blue
-    # links: green
