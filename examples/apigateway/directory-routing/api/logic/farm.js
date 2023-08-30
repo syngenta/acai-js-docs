@@ -49,10 +49,6 @@ class Farm {
         return this.__state;
     }
 
-    get state() {
-        return this.__state;
-    }
-
     get created() {
         return this.__created;
     }
