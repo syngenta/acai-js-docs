@@ -1,14 +1,14 @@
 {
-    "name": "alc-ddb-example",
+    "name": "acai-ddb-example",
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/syngenta-digital/docs-markdown-alc.git"
+        "url": "git+https://github.com/syngenta/acai-js-docs.git"
     },
     "scripts": {
         "deploy": "serverless deploy --stage poc --profile global-poc"
     },
     "dependencies": {
-        "@syngenta-digital/alc": "2.0.0"
+        "acai": "2.0.0"
     },
     "devDependencies": {
         "serverless": "2.72.0",

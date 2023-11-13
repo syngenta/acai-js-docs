@@ -1,14 +1,14 @@
 {
-    "name": "alc-list-example",
+    "name": "acai-list-example",
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/syngenta-digital/docs-markdown-alc.git"
+        "url": "git+https://github.com/syngenta/acai-js-docs.git"
     },
     "scripts": {
         "start": "serverless offline start --stage local --aws_envs local --region us-east-2 --profile local"
     },
     "dependencies": {
-        "@syngenta-digital/alc": "2.0.0",
+        "acai": "2.0.3-beta.2",
         "chance": "1.1.8",
         "uuid": "8.0.0"
     },

@@ -1,7 +1,7 @@
 {
 	"info": {
-		"_postman_id": "21d24990-c78b-413e-bc7f-373c939b6d86",
-		"name": "ALC EXAMPLE: Directory Router",
+		"_postman_id": "90201494-a87e-4464-b6f7-eb76fe57e842",
+		"name": "ACAI EXAMPLE: Pattern Router",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "8869631"
 	},
@@ -9,6 +9,38 @@
 		{
 			"name": "GROWER",
 			"item": [
+				{
+					"name": "GROWERS",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9000/pattern-example/grower",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"pattern-example",
+								"grower"
+							],
+							"query": [
+								{
+									"key": "first",
+									"value": "",
+									"disabled": true
+								},
+								{
+									"key": "last",
+									"value": "",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
 				{
 					"name": "GROWER",
 					"request": {
@@ -24,47 +56,15 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:9000/directory-example/grower",
+							"raw": "http://localhost:9000/pattern-example/grower",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "9000",
 							"path": [
-								"directory-example",
+								"pattern-example",
 								"grower"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "GROWERS",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:9000/directory-example/grower",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "9000",
-							"path": [
-								"directory-example",
-								"grower"
-							],
-							"query": [
-								{
-									"key": "first",
-									"value": "",
-									"disabled": true
-								},
-								{
-									"key": "last",
-									"value": "",
-									"disabled": true
-								}
 							]
 						}
 					},
@@ -85,14 +85,14 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:9000/directory-example/grower/2680ddc5-542f-4e67-ba43-d34be1c3b9fd",
+							"raw": "http://localhost:9000/pattern-example/grower/2680ddc5-542f-4e67-ba43-d34be1c3b9fd",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "9000",
 							"path": [
-								"directory-example",
+								"pattern-example",
 								"grower",
 								"2680ddc5-542f-4e67-ba43-d34be1c3b9fd"
 							]
@@ -110,7 +110,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"first\": \"Developer\",\n    \"last\": \"Syngenta Digital\"\n}",
+							"raw": "",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -118,14 +118,14 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:9000/directory-example/grower/2680ddc5-542f-4e67-ba43-d34be1c3b9fd",
+							"raw": "http://localhost:9000/pattern-example/grower/2680ddc5-542f-4e67-ba43-d34be1c3b9fd",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "9000",
 							"path": [
-								"directory-example",
+								"pattern-example",
 								"grower",
 								"2680ddc5-542f-4e67-ba43-d34be1c3b9fd"
 							]
@@ -148,14 +148,14 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:9000/directory-example/grower/2680ddc5-542f-4e67-ba43-d34be1c3b9fd",
+							"raw": "http://localhost:9000/pattern-example/grower/2680ddc5-542f-4e67-ba43-d34be1c3b9fd",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "9000",
 							"path": [
-								"directory-example",
+								"pattern-example",
 								"grower",
 								"2680ddc5-542f-4e67-ba43-d34be1c3b9fd"
 							]
@@ -180,14 +180,14 @@
 							}
 						],
 						"url": {
-							"raw": "http://localhost:9000/directory-example/org",
+							"raw": "http://localhost:9000/pattern-example/org",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "9000",
 							"path": [
-								"directory-example",
+								"pattern-example",
 								"org"
 							]
 						}
@@ -215,14 +215,14 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:9000/directory-example/org",
+							"raw": "http://localhost:9000/pattern-example/org",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "9000",
 							"path": [
-								"directory-example",
+								"pattern-example",
 								"org"
 							]
 						}
@@ -255,14 +255,14 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:9000/directory-example/farm",
+							"raw": "http://localhost:9000/pattern-example/farm",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "9000",
 							"path": [
-								"directory-example",
+								"pattern-example",
 								"farm"
 							]
 						}
@@ -293,14 +293,14 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:9000/directory-example/farm?ownerId=e04b5b86-e1bd-4322-adcb-fe00a81c3ec8",
+							"raw": "http://localhost:9000/pattern-example/farm?ownerId=e04b5b86-e1bd-4322-adcb-fe00a81c3ec8",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "9000",
 							"path": [
-								"directory-example",
+								"pattern-example",
 								"farm"
 							],
 							"query": [
@@ -337,14 +337,14 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:9000/directory-example/farm/5ccfa4d3-facf-40d2-88d7-92d9319257ea",
+							"raw": "http://localhost:9000/pattern-example/farm/5ccfa4d3-facf-40d2-88d7-92d9319257ea",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "9000",
 							"path": [
-								"directory-example",
+								"pattern-example",
 								"farm",
 								"5ccfa4d3-facf-40d2-88d7-92d9319257ea"
 							]
@@ -373,14 +373,14 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:9000/directory-example/farm/5ccfa4d3-facf-40d2-88d7-92d9319257ea",
+							"raw": "http://localhost:9000/pattern-example/farm/5ccfa4d3-facf-40d2-88d7-92d9319257ea",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "9000",
 							"path": [
-								"directory-example",
+								"pattern-example",
 								"farm",
 								"5ccfa4d3-facf-40d2-88d7-92d9319257ea"
 							]
@@ -409,14 +409,14 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:9000/directory-example/farm/5ccfa4d3-facf-40d2-88d7-92d9319257ea",
+							"raw": "http://localhost:9000/pattern-example/farm/5ccfa4d3-facf-40d2-88d7-92d9319257ea",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "9000",
 							"path": [
-								"directory-example",
+								"pattern-example",
 								"farm",
 								"5ccfa4d3-facf-40d2-88d7-92d9319257ea"
 							]
@@ -453,14 +453,14 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:9000/directory-example/farm/5ccfa4d3-facf-40d2-88d7-92d9319257ea/field",
+							"raw": "http://localhost:9000/pattern-example/farm/5ccfa4d3-facf-40d2-88d7-92d9319257ea/field",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "9000",
 							"path": [
-								"directory-example",
+								"pattern-example",
 								"farm",
 								"5ccfa4d3-facf-40d2-88d7-92d9319257ea",
 								"field"
@@ -493,14 +493,14 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:9000/directory-example/farm/5ccfa4d3-facf-40d2-88d7-92d9319257ea/field/82c65f81-d93d-4c22-a1fa-1268aa1bf0b8",
+							"raw": "http://localhost:9000/pattern-example/farm/5ccfa4d3-facf-40d2-88d7-92d9319257ea/field/82c65f81-d93d-4c22-a1fa-1268aa1bf0b8",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "9000",
 							"path": [
-								"directory-example",
+								"pattern-example",
 								"farm",
 								"5ccfa4d3-facf-40d2-88d7-92d9319257ea",
 								"field",
@@ -531,14 +531,14 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:9000/directory-example/farm/5ccfa4d3-facf-40d2-88d7-92d9319257ea/field/82c65f81-d93d-4c22-a1fa-1268aa1bf0b8",
+							"raw": "http://localhost:9000/pattern-example/farm/5ccfa4d3-facf-40d2-88d7-92d9319257ea/field/82c65f81-d93d-4c22-a1fa-1268aa1bf0b8",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "9000",
 							"path": [
-								"directory-example",
+								"pattern-example",
 								"farm",
 								"5ccfa4d3-facf-40d2-88d7-92d9319257ea",
 								"field",
@@ -569,14 +569,14 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:9000/directory-example/farm/5ccfa4d3-facf-40d2-88d7-92d9319257ea/field/82c65f81-d93d-4c22-a1fa-1268aa1bf0b8",
+							"raw": "http://localhost:9000/pattern-example/farm/5ccfa4d3-facf-40d2-88d7-92d9319257ea/field/82c65f81-d93d-4c22-a1fa-1268aa1bf0b8",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "9000",
 							"path": [
-								"directory-example",
+								"pattern-example",
 								"farm",
 								"5ccfa4d3-facf-40d2-88d7-92d9319257ea",
 								"field",

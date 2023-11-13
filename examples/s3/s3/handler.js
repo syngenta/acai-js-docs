@@ -1,4 +1,4 @@
-const EventClient = require('@syngenta-digital/alc').s3.Event;
+const EventClient = require('acai').s3.Event;
 
 const schema = {
     type: 'object',

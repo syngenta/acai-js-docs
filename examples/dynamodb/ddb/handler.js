@@ -1,4 +1,4 @@
-const EventClient = require('@syngenta-digital/alc').dynamodb.Event;
+const EventClient = require('acai').dynamodb.Event;
 
 const schema = {
     type: 'object',

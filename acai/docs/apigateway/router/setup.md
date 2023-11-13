@@ -60,13 +60,14 @@ There are three routing modes: `directory`, `pattern` and `list`; `directory` an
 
     ```js
     const {Router} = require('@syngenta-digital/Acai').apigateway;
+    const router = new Router({
+        routingMode: 'directory',
+        basePath: 'api', // for use with custom apigateway domain
+        handlerPath: 'api/handler'
+    });
+    router.autoLoad() // optional; pulls in files from disc into memory and shares on with concurrent lambdas
 
     exports.route = async (event) => {
-        const router = new Router({
-            routingMode: 'directory',
-            basePath: 'api', // for use with custom apigateway domain
-            handlerPath: 'api/handler'
-        });
         return router.route(event);
     };
     ```
@@ -152,17 +153,18 @@ There are three routing modes: `directory`, `pattern` and `list`; `directory` an
 
     ```js
     const {Router} = require('@syngenta-digital/Acai').apigateway;
+    const router = new Router({
+        routingMode: 'list',
+        basePath: 'api', // for use with custom apigateway domain
+        handlerList: {
+            'GET::grower': 'api/routes/grower.js',
+            'POST::farm': 'api/routes/farm.js',
+            'PUT:farm/{farmId}/field/{fieldId}': 'api/routes/farm-field.js'
+        }
+    });
 
+    router.autoLoad() // optional; pulls in files from disc into memory and shares on with concurrent lambdas
     exports.route = async (event) => {
-        const router = new Router({
-            routingMode: 'list',
-            basePath: 'api', // for use with custom apigateway domain
-            handlerList: {
-                'GET::grower': 'api/routes/grower.js',
-                'POST::farm': 'api/routes/farm.js',
-                'PUT:farm/{farmId}/field/{fieldId}': 'api/routes/farm-field.js'
-            }
-        });
         return router.route(event);
     };
     ```

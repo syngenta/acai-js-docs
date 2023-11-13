@@ -1,4 +1,4 @@
-const {Router} = require('@syngenta-digital/alc').apigateway;
+const {Router} = require('acai').apigateway;
 const ApiTraffic = require('./shared/api-traffic');
 const {routes} = require('./routes');
 

@@ -1,4 +1,4 @@
-const EventClient = require('@syngenta-digital/alc').sqs.Event;
+const EventClient = require('acai').sqs.Event;
 
 const schema = {
     type: 'object',

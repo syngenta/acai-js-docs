@@ -36,20 +36,22 @@ const {Router} = require('@syngenta-digital/Acai').apigateway;
 const MiddlewareUtils = require('api/logic/utils/middleware');
 const Authenticator = require('api/logic/authenticator');
 
+const router = new Router({
+    basePath: 'api',
+    routingMode: 'directory',
+    handlerPath: 'api/handler',
+    schemaPath: 'api/openapi.yml',
+    autoValidate: true,
+    globalLogger: true,
+    beforeAll: MiddlewareUtils.beforeAll,
+    afterAll: MiddlewareUtils.afterAll,
+    onError: MiddlewareUtils.onError,
+    withAuth: Authenticator.authenticate,
+    loggerCallback: MiddlewareUtils.loggerCallback,
+});
+router.autoLoad() // optional; pulls in files from disc into memory and shares on with concurrent lambdas
+
 exports.route = async (event) => {
-    const router = new Router({
-        basePath: 'api',
-        routingMode: 'directory',
-        handlerPath: 'api/handler',
-        schemaPath: 'api/openapi.yml',
-        autoValidate: true,
-        globalLogger: true,
-        beforeAll: MiddlewareUtils.beforeAll,
-        afterAll: MiddlewareUtils.afterAll,
-        onError: MiddlewareUtils.onError,
-        withAuth: Authenticator.authenticate,
-        loggerCallback: MiddlewareUtils.loggerCallback,
-    });
     return router.route(event);
 };
 ```
@@ -62,20 +64,22 @@ const {Router} = require('@syngenta-digital/Acai').apigateway;
 const MiddlewareUtils = require('api/logic/utils/middleware');
 const Authenticator = require('api/logic/authenticator');
 
+const router = new Router({
+    basePath: 'api',
+    routingMode: 'pattern',
+    handlerPattern: 'api/**/*.controller.js',
+    schemaPath: 'api/openapi.yml',
+    autoValidate: true,
+    globalLogger: true,
+    beforeAll: MiddlewareUtils.beforeAll,
+    afterAll: MiddlewareUtils.afterAll,
+    onError: MiddlewareUtils.onError,
+    withAuth: Authenticator.authenticate,
+    loggerCallback: MiddlewareUtils.loggerCallback,
+});
+router.autoLoad() // optional; pulls in files from disc into memory and shares on with concurrent lambdas
+
 exports.route = async (event) => {
-    const router = new Router({
-        basePath: 'api',
-        routingMode: 'pattern',
-        handlerPattern: 'api/**/*.controller.js',
-        schemaPath: 'api/openapi.yml',
-        autoValidate: true,
-        globalLogger: true,
-        beforeAll: MiddlewareUtils.beforeAll,
-        afterAll: MiddlewareUtils.afterAll,
-        onError: MiddlewareUtils.onError,
-        withAuth: Authenticator.authenticate,
-        loggerCallback: MiddlewareUtils.loggerCallback,
-    });
     return router.route(event);
 };
 ```
@@ -88,26 +92,30 @@ const {Router} = require('@syngenta-digital/Acai').apigateway;
 const MiddlewareUtils = require('api/logic/utils/middleware');
 const Authenticator = require('api/logic/authenticator');
 
+// best to put this is in separate file; but the sake of brevity...
 const routes = {
     'GET::grower': 'api/routes/grower.js',
     'POST::farm': 'api/routes/farm.js',
     'PUT:farm/{farmId}/field/{fieldId}': 'api/routes/farm-field.js'
 }
 
-exports.route = async (event) => {
-    const router = new Router({
-        basePath: 'api',
-        routingMode: 'list',
-        handlerList: routes,
-        schemaPath: 'api/openapi.yml',
-        autoValidate: true,
-        globalLogger: true,
-        beforeAll: MiddlewareUtils.beforeAll,
-        afterAll: MiddlewareUtils.afterAll,
-        onError: MiddlewareUtils.onError,
-        withAuth: Authenticator.authenticate,
-        loggerCallback: MiddlewareUtils.loggerCallback
-    });
+const router = new Router({
+    basePath: 'api',
+    routingMode: 'list',
+    handlerList: routes,
+    schemaPath: 'api/openapi.yml',
+    autoValidate: true,
+    globalLogger: true,
+    beforeAll: MiddlewareUtils.beforeAll,
+    afterAll: MiddlewareUtils.afterAll,
+    onError: MiddlewareUtils.onError,
+    withAuth: Authenticator.authenticate,
+    loggerCallback: MiddlewareUtils.loggerCallback
+});
+
+router.autoLoad() // optional; pulls in files from disc into memory and shares on with concurrent lambdas
+
+exports.route = async (event) => {    
     return router.route(event);
 };
 ```
