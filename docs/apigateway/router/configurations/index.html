@@ -1298,6 +1298,12 @@
 <td>will call this function on every unhandled error; not including validation errors</td>
 </tr>
 <tr>
+<td><strong><code>outputError</code></strong></td>
+<td>bool</td>
+<td>no, (default: false)</td>
+<td>determines if internal service error messages are outputed by api or just default</td>
+</tr>
+<tr>
 <td><strong><code>routingMode</code></strong></td>
 <td>enum</td>
 <td>yes; directory or pattern or list</td>
@@ -1341,7 +1347,8 @@
 <span class="normal">21</span>
 <span class="normal">22</span>
 <span class="normal">23</span>
-<span class="normal">24</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="p">{</span><span class="nx">Router</span><span class="p">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@syngenta-digital/Acai&#39;</span><span class="p">).</span><span class="nx">apigateway</span><span class="p">;</span>
+<span class="normal">24</span>
+<span class="normal">25</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="p">{</span><span class="nx">Router</span><span class="p">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@syngenta-digital/Acai&#39;</span><span class="p">).</span><span class="nx">apigateway</span><span class="p">;</span>
 <span class="kd">const</span><span class="w"> </span><span class="nx">MiddlewareUtils</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;api/logic/utils/middleware&#39;</span><span class="p">);</span>
 <span class="kd">const</span><span class="w"> </span><span class="nx">Authenticator</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;api/logic/authenticator&#39;</span><span class="p">);</span>
 
@@ -1354,6 +1361,7 @@
 <span class="w">    </span><span class="nx">globalLogger</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
 <span class="w">    </span><span class="nx">cacheSize</span><span class="o">:</span><span class="w"> </span><span class="mf">512</span><span class="p">,</span>
 <span class="w">    </span><span class="nx">cacheMode</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;all&#39;</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">outputError</span><span class="o">:</span><span class="w"> </span><span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">STAGE</span><span class="w"> </span><span class="o">!==</span><span class="w"> </span><span class="s1">&#39;prod&#39;</span><span class="p">,</span><span class="w"> </span><span class="c1">// useful for lower environments</span>
 <span class="w">    </span><span class="nx">beforeAll</span><span class="o">:</span><span class="w"> </span><span class="nx">MiddlewareUtils</span><span class="p">.</span><span class="nx">beforeAll</span><span class="p">,</span>
 <span class="w">    </span><span class="nx">afterAll</span><span class="o">:</span><span class="w"> </span><span class="nx">MiddlewareUtils</span><span class="p">.</span><span class="nx">afterAll</span><span class="p">,</span>
 <span class="w">    </span><span class="nx">onError</span><span class="o">:</span><span class="w"> </span><span class="nx">MiddlewareUtils</span><span class="p">.</span><span class="nx">onError</span><span class="p">,</span>
@@ -1390,7 +1398,8 @@
 <span class="normal">21</span>
 <span class="normal">22</span>
 <span class="normal">23</span>
-<span class="normal">24</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="p">{</span><span class="nx">Router</span><span class="p">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@syngenta-digital/Acai&#39;</span><span class="p">).</span><span class="nx">apigateway</span><span class="p">;</span>
+<span class="normal">24</span>
+<span class="normal">25</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="p">{</span><span class="nx">Router</span><span class="p">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@syngenta-digital/Acai&#39;</span><span class="p">).</span><span class="nx">apigateway</span><span class="p">;</span>
 <span class="kd">const</span><span class="w"> </span><span class="nx">MiddlewareUtils</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;api/logic/utils/middleware&#39;</span><span class="p">);</span>
 <span class="kd">const</span><span class="w"> </span><span class="nx">Authenticator</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;api/logic/authenticator&#39;</span><span class="p">);</span>
 
@@ -1403,6 +1412,7 @@
 <span class="w">    </span><span class="nx">globalLogger</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
 <span class="w">    </span><span class="nx">cacheSize</span><span class="o">:</span><span class="w"> </span><span class="mf">512</span><span class="p">,</span>
 <span class="w">    </span><span class="nx">cacheMode</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;all&#39;</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">outputError</span><span class="o">:</span><span class="w"> </span><span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">STAGE</span><span class="w"> </span><span class="o">!==</span><span class="w"> </span><span class="s1">&#39;prod&#39;</span><span class="p">,</span><span class="w"> </span><span class="c1">// useful for lower environments</span>
 <span class="w">    </span><span class="nx">beforeAll</span><span class="o">:</span><span class="w"> </span><span class="nx">MiddlewareUtils</span><span class="p">.</span><span class="nx">beforeAll</span><span class="p">,</span>
 <span class="w">    </span><span class="nx">afterAll</span><span class="o">:</span><span class="w"> </span><span class="nx">MiddlewareUtils</span><span class="p">.</span><span class="nx">afterAll</span><span class="p">,</span>
 <span class="w">    </span><span class="nx">onError</span><span class="o">:</span><span class="w"> </span><span class="nx">MiddlewareUtils</span><span class="p">.</span><span class="nx">onError</span><span class="p">,</span>
@@ -1447,7 +1457,8 @@
 <span class="normal">29</span>
 <span class="normal">30</span>
 <span class="normal">31</span>
-<span class="normal">32</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="p">{</span><span class="nx">Router</span><span class="p">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@syngenta-digital/Acai&#39;</span><span class="p">).</span><span class="nx">apigateway</span><span class="p">;</span>
+<span class="normal">32</span>
+<span class="normal">33</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="p">{</span><span class="nx">Router</span><span class="p">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@syngenta-digital/Acai&#39;</span><span class="p">).</span><span class="nx">apigateway</span><span class="p">;</span>
 <span class="kd">const</span><span class="w"> </span><span class="nx">MiddlewareUtils</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;api/logic/utils/middleware&#39;</span><span class="p">);</span>
 <span class="kd">const</span><span class="w"> </span><span class="nx">Authenticator</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;api/logic/authenticator&#39;</span><span class="p">);</span>
 
@@ -1467,6 +1478,7 @@
 <span class="w">    </span><span class="nx">globalLogger</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
 <span class="w">    </span><span class="nx">cacheSize</span><span class="o">:</span><span class="w"> </span><span class="mf">512</span><span class="p">,</span>
 <span class="w">    </span><span class="nx">cacheMode</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;all&#39;</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">outputError</span><span class="o">:</span><span class="w"> </span><span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">STAGE</span><span class="w"> </span><span class="o">!==</span><span class="w"> </span><span class="s1">&#39;prod&#39;</span><span class="p">,</span><span class="w"> </span><span class="c1">// useful for lower environments</span>
 <span class="w">    </span><span class="nx">beforeAll</span><span class="o">:</span><span class="w"> </span><span class="nx">MiddlewareUtils</span><span class="p">.</span><span class="nx">beforeAll</span><span class="p">,</span>
 <span class="w">    </span><span class="nx">afterAll</span><span class="o">:</span><span class="w"> </span><span class="nx">MiddlewareUtils</span><span class="p">.</span><span class="nx">afterAll</span><span class="p">,</span>
 <span class="w">    </span><span class="nx">onError</span><span class="o">:</span><span class="w"> </span><span class="nx">MiddlewareUtils</span><span class="p">.</span><span class="nx">onError</span><span class="p">,</span>

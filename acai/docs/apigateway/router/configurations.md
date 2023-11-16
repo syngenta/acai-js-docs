@@ -26,6 +26,7 @@ As mentioned previously, the router is highly configurable to each project needs
 | **`handlerList`**    | object | yes, if `routingMode` == 'list'      | object key, value pair to be able to map routes to files                          |
 | **`loggerCallback`** | func   | no                                   | will call this function on every call to `global.logger`                          |
 | **`onError`**        | func   | no                                   | will call this function on every unhandled error; not including validation errors |
+| **`outputError`**    | bool   | no, (default: false)                 | determines if internal service error messages are outputed by api or just default |
 | **`routingMode`**    | enum   | yes; directory or pattern or list    | determines how to route requests to the right files; 3 modes                      |
 | **`schemaPath`**     | str    | yes, if `autoValidate`               | file path pointing to the location of the openapi.yml file                        |
 | **`withAuth`**       | func   | no                                   | will call this function when `requirements` have `requiredAuth` set to `true`     |
@@ -47,6 +48,7 @@ const router = new Router({
     globalLogger: true,
     cacheSize: 512,
     cacheMode: 'all',
+    outputError: process.env.STAGE !== 'prod', // useful for lower environments
     beforeAll: MiddlewareUtils.beforeAll,
     afterAll: MiddlewareUtils.afterAll,
     onError: MiddlewareUtils.onError,
@@ -77,6 +79,7 @@ const router = new Router({
     globalLogger: true,
     cacheSize: 512,
     cacheMode: 'all',
+    outputError: process.env.STAGE !== 'prod', // useful for lower environments
     beforeAll: MiddlewareUtils.beforeAll,
     afterAll: MiddlewareUtils.afterAll,
     onError: MiddlewareUtils.onError,
@@ -114,6 +117,7 @@ const router = new Router({
     globalLogger: true,
     cacheSize: 512,
     cacheMode: 'all',
+    outputError: process.env.STAGE !== 'prod', // useful for lower environments
     beforeAll: MiddlewareUtils.beforeAll,
     afterAll: MiddlewareUtils.afterAll,
     onError: MiddlewareUtils.onError,
