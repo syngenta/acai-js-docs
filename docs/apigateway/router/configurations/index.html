@@ -1250,6 +1250,18 @@
 <td>will call this function before EVERY request to the API</td>
 </tr>
 <tr>
+<td><strong><code>cacheSize</code></strong></td>
+<td>int</td>
+<td>no (default: 128)</td>
+<td>caches the routes and modules (not responses) for faster subsequent requests</td>
+</tr>
+<tr>
+<td><strong><code>cacheMode</code></strong></td>
+<td>enum</td>
+<td>no (default: all</td>
+<td>staic</td>
+</tr>
+<tr>
 <td><strong><code>globalLogger</code></strong></td>
 <td>bool</td>
 <td>no</td>
@@ -1327,7 +1339,9 @@
 <span class="normal">19</span>
 <span class="normal">20</span>
 <span class="normal">21</span>
-<span class="normal">22</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="p">{</span><span class="nx">Router</span><span class="p">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@syngenta-digital/Acai&#39;</span><span class="p">).</span><span class="nx">apigateway</span><span class="p">;</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="p">{</span><span class="nx">Router</span><span class="p">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@syngenta-digital/Acai&#39;</span><span class="p">).</span><span class="nx">apigateway</span><span class="p">;</span>
 <span class="kd">const</span><span class="w"> </span><span class="nx">MiddlewareUtils</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;api/logic/utils/middleware&#39;</span><span class="p">);</span>
 <span class="kd">const</span><span class="w"> </span><span class="nx">Authenticator</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;api/logic/authenticator&#39;</span><span class="p">);</span>
 
@@ -1338,6 +1352,8 @@
 <span class="w">    </span><span class="nx">schemaPath</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;api/openapi.yml&#39;</span><span class="p">,</span>
 <span class="w">    </span><span class="nx">autoValidate</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
 <span class="w">    </span><span class="nx">globalLogger</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">cacheSize</span><span class="o">:</span><span class="w"> </span><span class="mf">512</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">cacheMode</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;all&#39;</span><span class="p">,</span>
 <span class="w">    </span><span class="nx">beforeAll</span><span class="o">:</span><span class="w"> </span><span class="nx">MiddlewareUtils</span><span class="p">.</span><span class="nx">beforeAll</span><span class="p">,</span>
 <span class="w">    </span><span class="nx">afterAll</span><span class="o">:</span><span class="w"> </span><span class="nx">MiddlewareUtils</span><span class="p">.</span><span class="nx">afterAll</span><span class="p">,</span>
 <span class="w">    </span><span class="nx">onError</span><span class="o">:</span><span class="w"> </span><span class="nx">MiddlewareUtils</span><span class="p">.</span><span class="nx">onError</span><span class="p">,</span>
@@ -1372,7 +1388,9 @@
 <span class="normal">19</span>
 <span class="normal">20</span>
 <span class="normal">21</span>
-<span class="normal">22</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="p">{</span><span class="nx">Router</span><span class="p">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@syngenta-digital/Acai&#39;</span><span class="p">).</span><span class="nx">apigateway</span><span class="p">;</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="p">{</span><span class="nx">Router</span><span class="p">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@syngenta-digital/Acai&#39;</span><span class="p">).</span><span class="nx">apigateway</span><span class="p">;</span>
 <span class="kd">const</span><span class="w"> </span><span class="nx">MiddlewareUtils</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;api/logic/utils/middleware&#39;</span><span class="p">);</span>
 <span class="kd">const</span><span class="w"> </span><span class="nx">Authenticator</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;api/logic/authenticator&#39;</span><span class="p">);</span>
 
@@ -1383,6 +1401,8 @@
 <span class="w">    </span><span class="nx">schemaPath</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;api/openapi.yml&#39;</span><span class="p">,</span>
 <span class="w">    </span><span class="nx">autoValidate</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
 <span class="w">    </span><span class="nx">globalLogger</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">cacheSize</span><span class="o">:</span><span class="w"> </span><span class="mf">512</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">cacheMode</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;all&#39;</span><span class="p">,</span>
 <span class="w">    </span><span class="nx">beforeAll</span><span class="o">:</span><span class="w"> </span><span class="nx">MiddlewareUtils</span><span class="p">.</span><span class="nx">beforeAll</span><span class="p">,</span>
 <span class="w">    </span><span class="nx">afterAll</span><span class="o">:</span><span class="w"> </span><span class="nx">MiddlewareUtils</span><span class="p">.</span><span class="nx">afterAll</span><span class="p">,</span>
 <span class="w">    </span><span class="nx">onError</span><span class="o">:</span><span class="w"> </span><span class="nx">MiddlewareUtils</span><span class="p">.</span><span class="nx">onError</span><span class="p">,</span>
@@ -1425,7 +1445,9 @@
 <span class="normal">27</span>
 <span class="normal">28</span>
 <span class="normal">29</span>
-<span class="normal">30</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="p">{</span><span class="nx">Router</span><span class="p">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@syngenta-digital/Acai&#39;</span><span class="p">).</span><span class="nx">apigateway</span><span class="p">;</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="p">{</span><span class="nx">Router</span><span class="p">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@syngenta-digital/Acai&#39;</span><span class="p">).</span><span class="nx">apigateway</span><span class="p">;</span>
 <span class="kd">const</span><span class="w"> </span><span class="nx">MiddlewareUtils</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;api/logic/utils/middleware&#39;</span><span class="p">);</span>
 <span class="kd">const</span><span class="w"> </span><span class="nx">Authenticator</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;api/logic/authenticator&#39;</span><span class="p">);</span>
 
@@ -1443,6 +1465,8 @@
 <span class="w">    </span><span class="nx">schemaPath</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;api/openapi.yml&#39;</span><span class="p">,</span>
 <span class="w">    </span><span class="nx">autoValidate</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
 <span class="w">    </span><span class="nx">globalLogger</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">cacheSize</span><span class="o">:</span><span class="w"> </span><span class="mf">512</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">cacheMode</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;all&#39;</span><span class="p">,</span>
 <span class="w">    </span><span class="nx">beforeAll</span><span class="o">:</span><span class="w"> </span><span class="nx">MiddlewareUtils</span><span class="p">.</span><span class="nx">beforeAll</span><span class="p">,</span>
 <span class="w">    </span><span class="nx">afterAll</span><span class="o">:</span><span class="w"> </span><span class="nx">MiddlewareUtils</span><span class="p">.</span><span class="nx">afterAll</span><span class="p">,</span>
 <span class="w">    </span><span class="nx">onError</span><span class="o">:</span><span class="w"> </span><span class="nx">MiddlewareUtils</span><span class="p">.</span><span class="nx">onError</span><span class="p">,</span>
