@@ -19,7 +19,7 @@ As mentioned previously, the router is highly configurable to each project needs
 | **`basePath`**       | str    | yes                                  | the base path of the API Gateway instance this is running on                      |
 | **`beforeAll`**      | func   | no                                   | will call this function before EVERY request to the API                           |
 | **`cacheSize`**      | int    | no (default: 128)                    | caches the routes and modules (not responses) for faster subsequent requests      |
-| **`cacheMode`**      | enum   | no (default: all | staic| dynamic)   | determins which routes to cache; all or routes with dynamic paths or statc only   |
+| **`cacheMode`**      | enum   | no; all (default), static, dynamic   | determines which routes to cache; all, routes with dynamic paths or static only   |
 | **`globalLogger`**   | bool   | no                                   | will assign the Acai logger to the global variable `globalLogger`                 |
 | **`handlerPath`**    | str    | yes, if `routingMode` == 'directory' | file path pointing to the directory where the endpoints are                       |
 | **`handlerPattern`** | str    | yes, if `routingMode` == 'pattern'   | glob pattern to be able to find the endpoint files                                |
