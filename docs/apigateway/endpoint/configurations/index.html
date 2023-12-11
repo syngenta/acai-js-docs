@@ -683,6 +683,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#requiredresponse" class="md-nav__link">
+    requiredResponse
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#requiredauth" class="md-nav__link">
     requiredAuth
   </a>
@@ -1278,6 +1285,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#requiredresponse" class="md-nav__link">
+    requiredResponse
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#requiredauth" class="md-nav__link">
     requiredAuth
   </a>
@@ -1375,6 +1389,11 @@
 </tr>
 <tr>
 <td><strong><a href="{{web.url}}/apigateway/endpoint/configurations/#requiredbody"><code>requiredBody</code></a></strong></td>
+<td>str</td>
+<td>references a JSschema component in your <code>schemaFile</code></td>
+</tr>
+<tr>
+<td><strong><a href="{{web.url}}/apigateway/endpoint/configurations/#requiredResponse"><code>requiredResposne</code></a></strong></td>
 <td>str</td>
 <td>references a JSschema component in your <code>schemaFile</code></td>
 </tr>
@@ -1484,6 +1503,21 @@
 <span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">exports</span><span class="p">.</span><span class="nx">requirements</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="nx">post</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="nx">requiredBody</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;post-grower-request&#39;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">};</span>
+</code></pre></div></td></tr></table></div>
+<h4 id="requiredresponse"><code>requiredResponse</code><a class="headerlink" href="#requiredresponse" title="Permanent link">&para;</a></h4>
+<details class="info" open="open">
+<summary>Info</summary>
+<p>This is referencing a <code>components.schemas</code> section of your openapi.yml file defined in the <code>schemaFile</code> value in your router config.</p>
+</details>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">exports</span><span class="p">.</span><span class="nx">requirements</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">post</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">requiredResponse</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;post-grower-response&#39;</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">};</span>
 </code></pre></div></td></tr></table></div>

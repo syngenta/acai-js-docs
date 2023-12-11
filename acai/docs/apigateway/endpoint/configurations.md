@@ -20,6 +20,7 @@ In order to encourage "Happy Path Programming" and make it easier for developers
 | **[`availableQuery`]({{web.url}}/apigateway/endpoint/configurations/#availablequery)**     | array | only items in this array are allowed in the request           |
 | **[`requiredPath`]({{web.url}}/apigateway/endpoint/configurations/#requiredpath)**         | str   | when using parameters, this is the required parameters        |
 | **[`requiredBody`]({{web.url}}/apigateway/endpoint/configurations/#requiredbody)**         | str   | references a JSschema component in your `schemaFile`          |
+| **[`requiredResposne`]({{web.url}}/apigateway/endpoint/configurations/#requiredResponse)** | str   | references a JSschema component in your `schemaFile`          |
 | **[`requiredAuth`]({{web.url}}/apigateway/endpoint/configurations/#requiredauth)**         | bool  | will trigger `withAuth` function defined in the router config |
 | **[`before`]({{web.url}}/apigateway/endpoint/configurations/#before)**                     | func  | a custom function to be ran before your method function       |
 | **[`after`]({{web.url}}/apigateway/endpoint/configurations/#after)**                       | func  | a custom function to be ran after your method function        |
@@ -100,6 +101,21 @@ exports.requirements = {
 exports.requirements = {
     post: {
         requiredBody: 'post-grower-request'
+    }
+};
+```
+
+
+#### `requiredResponse`
+
+???+ info
+    This is referencing a `components.schemas` section of your openapi.yml file defined in the `schemaFile` value in your router config.
+
+```js
+
+exports.requirements = {
+    post: {
+        requiredResponse: 'post-grower-response'
     }
 };
 ```
