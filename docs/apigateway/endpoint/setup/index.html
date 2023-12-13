@@ -1340,7 +1340,8 @@
 <span class="normal">73</span>
 <span class="normal">74</span>
 <span class="normal">75</span>
-<span class="normal">76</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// example for endpoint file: api/grower.js</span>
+<span class="normal">76</span>
+<span class="normal">77</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// example for endpoint file: api/grower.js</span>
 
 <span class="kd">const</span><span class="w"> </span><span class="nx">Grower</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;api/logic/grower&#39;</span><span class="p">);</span>
 
@@ -1358,7 +1359,8 @@
 <span class="w">        </span><span class="nx">requiredPath</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;grower/{id}&#39;</span><span class="p">,</span>
 <span class="w">        </span><span class="nx">requiredAuth</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
 <span class="w">        </span><span class="nx">requiredBody</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;put-grower-request&#39;</span><span class="p">,</span>
-<span class="w">        </span><span class="nx">dataClass</span><span class="o">:</span><span class="w"> </span><span class="nx">Grower</span>
+<span class="w">        </span><span class="nx">dataClass</span><span class="o">:</span><span class="w"> </span><span class="nx">Grower</span><span class="p">,</span>
+<span class="w">        </span><span class="nx">timeout</span><span class="o">:</span><span class="w"> </span><span class="mf">1500</span><span class="p">,</span><span class="w"> </span><span class="c1">// will override timeout value set in router config</span>
 <span class="w">    </span><span class="p">},</span>
 <span class="w">    </span><span class="nx">patch</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="nx">requiredPath</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;grower/{id}&#39;</span><span class="p">,</span>

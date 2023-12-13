@@ -31,6 +31,8 @@ As mentioned previously, the router is highly configurable to each project needs
 | **`schemaPath`**       | str    | yes, if `autoValidate`               | file path pointing to the location of the openapi.yml file                        |
 | **`withAuth`**         | func   | no                                   | will call this function when `requirements` have `requiredAuth` set to `true`     |
 | **`validateResponse`** | bool   | no                                   | will validate the response from the api against openapi file or passed in schema  |
+| **`timeout`**          | int    | no                                   | set timeout for all endpoints in your app separate from lambda configurations     |
+| **`onTimeout`**        | func   | no                                   | will call when exceeding timeout setting; have more control on what to do next    |
 
 
 ### Example: Router Config with Directory Routing
@@ -50,6 +52,8 @@ const router = new Router({
     globalLogger: true,
     cacheSize: 512,
     cacheMode: 'all',
+    timeout: 2800, // in microseconds,
+    onTimeout: MiddlewareUtils.onTimeout,
     validateResponse: process.env.STAGE !== 'prod', // useful for lower environments
     outputError: process.env.STAGE !== 'prod', // useful for lower environments
     beforeAll: MiddlewareUtils.beforeAll,
@@ -82,6 +86,8 @@ const router = new Router({
     globalLogger: true,
     cacheSize: 512,
     cacheMode: 'all',
+    timeout: 2800, // in microseconds,
+    onTimeout: MiddlewareUtils.onTimeout,
     validateResponse: process.env.STAGE !== 'prod', // useful for lower environments
     outputError: process.env.STAGE !== 'prod', // useful for lower environments
     beforeAll: MiddlewareUtils.beforeAll,
@@ -121,6 +127,8 @@ const router = new Router({
     globalLogger: true,
     cacheSize: 512,
     cacheMode: 'all',
+    timeout: 2800, // in microseconds,
+    onTimeout: MiddlewareUtils.onTimeout,
     validateResponse: process.env.STAGE !== 'prod', // useful for lower environments
     outputError: process.env.STAGE !== 'prod', // useful for lower environments
     beforeAll: MiddlewareUtils.beforeAll,

@@ -81,7 +81,8 @@ exports.requirements = {
         requiredPath: 'grower/{id}',
         requiredAuth: true,
         requiredBody: 'put-grower-request',
-        dataClass: Grower
+        dataClass: Grower,
+        timeout: 1500, // will override timeout value set in router config
     },
     patch: {
         requiredPath: 'grower/{id}',

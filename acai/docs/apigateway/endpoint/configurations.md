@@ -25,6 +25,7 @@ In order to encourage "Happy Path Programming" and make it easier for developers
 | **[`before`]({{web.url}}/apigateway/endpoint/configurations/#before)**                     | func  | a custom function to be ran before your method function       |
 | **[`after`]({{web.url}}/apigateway/endpoint/configurations/#after)**                       | func  | a custom function to be ran after your method function        |
 | **[`dataClass`]({{web.url}}/apigateway/endpoint/configurations/#dataclass)**               | class | a custom class that will be passed instead of the request obj |
+| **[`timeout`]({{web.url}}/apigateway/endpoint/configurations/#timeout)**                   | int   | a timeout value in microseconds to stop endpoint from running |
 | **[`custom-requirement`]**                                                                 | any   | see bottom of page                                            |
 
 #### `requiredHeaders`
@@ -182,6 +183,20 @@ exports.requirements = {
 exports.requirements = {
     post: {
         dataClass: Grower
+    }
+};
+```
+
+#### `timeout`
+
+???+ info
+    This value will OVERRIDE any value set in the global timeout settings, set in the router config
+
+```js
+
+exports.requirements = {
+    post: {
+        timeout: 20000 // overrides other timeouts set in router config
     }
 };
 ```

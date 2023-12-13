@@ -718,6 +718,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#timeout" class="md-nav__link">
+    timeout
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#custom-requirements-example" class="md-nav__link">
     custom requirements (example)
   </a>
@@ -1320,6 +1327,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#timeout" class="md-nav__link">
+    timeout
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#custom-requirements-example" class="md-nav__link">
     custom requirements (example)
   </a>
@@ -1416,6 +1430,11 @@
 <td><strong><a href="{{web.url}}/apigateway/endpoint/configurations/#dataclass"><code>dataClass</code></a></strong></td>
 <td>class</td>
 <td>a custom class that will be passed instead of the request obj</td>
+</tr>
+<tr>
+<td><strong><a href="{{web.url}}/apigateway/endpoint/configurations/#timeout"><code>timeout</code></a></strong></td>
+<td>int</td>
+<td>a timeout value in microseconds to stop endpoint from running</td>
 </tr>
 <tr>
 <td><strong>[<code>custom-requirement</code>]</strong></td>
@@ -1600,6 +1619,21 @@
 <span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">exports</span><span class="p">.</span><span class="nx">requirements</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="nx">post</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="nx">dataClass</span><span class="o">:</span><span class="w"> </span><span class="nx">Grower</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">};</span>
+</code></pre></div></td></tr></table></div>
+<h4 id="timeout"><code>timeout</code><a class="headerlink" href="#timeout" title="Permanent link">&para;</a></h4>
+<details class="info" open="open">
+<summary>Info</summary>
+<p>This value will OVERRIDE any value set in the global timeout settings, set in the router config</p>
+</details>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">exports</span><span class="p">.</span><span class="nx">requirements</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">post</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">timeout</span><span class="o">:</span><span class="w"> </span><span class="mf">20000</span><span class="w"> </span><span class="c1">// overrides other timeouts set in router config</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">};</span>
 </code></pre></div></td></tr></table></div>
