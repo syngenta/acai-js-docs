@@ -32,7 +32,7 @@ nav:
             - sqs/record.md
     - common/logger.md
     - changes.md
-    - NPM Registry: https://www.npmjs.com/package/@syngenta-digital/acai-js
+    - NPM Registry: https://www.npmjs.com/package/acai
     - Github Repository: https://github.com/syngenta/acai-js
     - Issues: https://github.com/syngenta/acai-js/issues
 theme:
