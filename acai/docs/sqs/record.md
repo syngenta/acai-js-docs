@@ -1,16 +1,16 @@
 ---
-title: Record
+title: "📄 SNS/SQS Record"
 description: Review SNS/SQS Record Structure
 ---
 
-# SNS/SQS Record Object
+# 📄 SNS/SQS Record
 
 The SNS/SQS event will by default provide instances of `record` classes which will be easier to work with then a standard lambda event record object. This is the same object which will be passed down to the `dataClass`, if you provide on in your configuration. Below is a list of all the properties and example outputs for the SNS/SQS event record:
 
-???+ examples
+???+ example "🎓 Hands-on Example"
     Don't like reading documentation? Then look at [our examples,](https://github.com/syngenta/acai-js-docs/blob/main/examples/sns-sqs) which can be deployed in 1 command into your AWS account! :nerd:
 
-### Record Properties
+## 📋 Record Properties
 
 | property                                                                    | type   | description                                                      |
 |-----------------------------------------------------------------------------|--------|------------------------------------------------------------------|
@@ -25,7 +25,7 @@ The SNS/SQS event will by default provide instances of `record` classes which wi
 | **[`source`]({{web.url}}/sqs/record/#record.source)**                       | str    | the source of the event which invoked the lambda                 |
 | **[`sourceARN`]({{web.url}}/sqs/record/#record.sourceARN)**                 | str    | the arn of the source                                            |
 
-#### `record.attributes`
+#### 🔹 `record.attributes`
 
 ```javascript
 console.log(record.attributes);
@@ -39,7 +39,7 @@ console.log(record.attributes);
 }
 ```
 
-#### `record.body`
+#### 🔹 `record.body`
 
 ```javascript
 console.log(record.body);
@@ -50,7 +50,7 @@ console.log(record.body);
 }
 ```
 
-#### `record.source`
+#### 🔹 `record.source`
 
 ```javascript
 console.log(record.source);
@@ -59,7 +59,7 @@ console.log(record.source);
 'aws:sqs'
 ```
 
-#### `record.md5`
+#### 🔹 `record.md5`
 
 ```javascript
 console.log(record.md5);
@@ -68,7 +68,7 @@ console.log(record.md5);
 'e4e68fb7bd0e697a0ae8f1bb342846b3'
 ```
 
-#### `record.messageAttributes`
+#### 🔹 `record.messageAttributes`
 
 ```javascript
 console.log(record.messageAttributes);
@@ -79,7 +79,7 @@ console.log(record.messageAttributes);
 }
 ```
 
-#### `record.id`
+#### 🔹 `record.id`
 
 ```javascript
 console.log(record.id);
@@ -88,7 +88,7 @@ console.log(record.id);
 '2e1424d4-f796-459a-8184-9c92662be6da'
 ```
 
-#### `record.raw`
+#### 🔹 `record.raw`
 
 ```javascript
 console.log(record.raw);
@@ -97,7 +97,7 @@ console.log(record.raw);
 '{"some_key": "some_value"}'
 ```
 
-#### `record.receiptHandle`
+#### 🔹 `record.receiptHandle`
 
 ```javascript
 console.log(record.receiptHandle);
@@ -106,7 +106,7 @@ console.log(record.receiptHandle);
 'AQEBzWwaftRI0KuVm4tP+/7q1rGgNqicHq...'
 ```
 
-#### `record.region`
+#### 🔹 `record.region`
 
 ```javascript
 console.log(record.region);
@@ -115,7 +115,7 @@ console.log(record.region);
 'us-east-2'
 ```
 
-#### `record.sourceARN`
+#### 🔹 `record.sourceARN`
 
 ```javascript
 console.log(record.sourceARN);

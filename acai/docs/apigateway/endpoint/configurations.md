@@ -1,16 +1,16 @@
 ---
-title: Configurations
+title: "⚙️ Endpoint Configurations"
 description: How to use the built-in validation & custom middleware
 ---
 
-# Endpoint Configurations
+# ⚙️ Endpoint Configurations
 
 In order to encourage "Happy Path Programming" and make it easier for developers to validate request fully, the Acai comes with a host of built-in validations as well as the ability to extend with custom validations and middleware. See the full validation list here:
 
-???+ examples
+???+ example "🎓 Hands-on Example"
     Don't like reading documentation? Then look at [our examples,](https://github.com/syngenta/acai-js-docs/blob/main/examples/apigateway) which can run locally! :nerd:
 
-### Validation Configurations
+## 🛡️ Validation Configurations
 
 | requirement                                                                                | type  | description                                                   |
 |--------------------------------------------------------------------------------------------|-------|---------------------------------------------------------------|
@@ -28,7 +28,7 @@ In order to encourage "Happy Path Programming" and make it easier for developers
 | **[`timeout`]({{web.url}}/apigateway/endpoint/configurations/#timeout)**                   | int   | a timeout value in microseconds to stop endpoint from running |
 | **[`custom-requirement`]**                                                                 | any   | see bottom of page                                            |
 
-#### `requiredHeaders`
+#### 🔹 `requiredHeaders`
 
 ???+ info
     Headers are case-sensitive, make sure your casing matches your expectations.
@@ -42,7 +42,7 @@ exports.requirements = {
 };
 ```
 
-#### `availableHeaders`
+#### 🔹 `availableHeaders`
 
 ???+ warning
     This is not recommended for frequent use as it raises errors for every header which does not conform to the array provided. Many browsers, http tools, and libraries will automatically add headers to request, unbeknownst to the user. By using this setting, you will force every user of the endpoint to take extra care with the headers provided and may result in poor API consumer experience.
@@ -56,7 +56,7 @@ exports.requirements = {
 };
 ```
 
-#### `requiredQuery`
+#### 🔹 `requiredQuery`
 
 ```js
 
@@ -67,7 +67,7 @@ exports.requirements = {
 };
 ```
 
-#### `availableQuery`
+#### 🔹 `availableQuery`
 
 ```js
 
@@ -78,7 +78,7 @@ exports.requirements = {
 };
 ```
 
-#### `requiredPath`
+#### 🔹 `requiredPath`
 
 ???+ warning
     This is required if you are using dynamic routing (ex. `{id}.js`) with path parameters. The router will provide a path values in `request.pathParams`
@@ -92,7 +92,7 @@ exports.requirements = {
 };
 ```
 
-#### `requiredBody`
+#### 🔹 `requiredBody`
 
 ???+ info
     This is referencing a `components.schemas` section of your openapi.yml file defined in the `schemaFile` value in your router config.
@@ -107,7 +107,7 @@ exports.requirements = {
 ```
 
 
-#### `requiredResponse`
+#### 🔹 `requiredResponse`
 
 ???+ info
     This is referencing a `components.schemas` section of your openapi.yml file defined in the `schemaFile` value in your router config.
@@ -122,7 +122,7 @@ exports.requirements = {
 ```
 
 
-#### `requiredAuth`
+#### 🔹 `requiredAuth`
 
 ???+ info
     This will trigger the function you provided in the router config under the `withAuth` configuration
@@ -136,7 +136,7 @@ exports.requirements = {
 };
 ```
 
-#### `before`
+#### 🔹 `before`
 
 ```js
 
@@ -152,7 +152,7 @@ exports.requirements = {
 };
 ```
 
-#### `after`
+#### 🔹 `after`
 
 ```js
 
@@ -173,7 +173,7 @@ exports.requirements = {
 };
 ```
 
-#### `dataClass`
+#### 🔹 `dataClass`
 
 ???+ info
     Instead of getting a `request` and `response` as arguments passed to your API function, you will get an instance of the class you provided here
@@ -187,7 +187,7 @@ exports.requirements = {
 };
 ```
 
-#### `timeout`
+#### 🔹 `timeout`
 
 ???+ info
     This value will OVERRIDE any value set in the global timeout settings, set in the router config
@@ -201,7 +201,7 @@ exports.requirements = {
 };
 ```
 
-#### custom requirements (example)
+#### 🔹 custom requirements (example)
 
 ???+ info
     You can add as many custom requirements as you want, with any variable type you want, and they will be passed to your `beforeAll`, `before`, `afterAll`, `after` and `withAuth` middleware defined functions.

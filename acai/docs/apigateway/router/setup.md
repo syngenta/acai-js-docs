@@ -1,15 +1,15 @@
 ---
-title: Set Up
-description: How to use the Acai Router
+title: "🚀 Router Setup"
+description: How to configure the Acai router
 ---
 
-# Router Set Up
+# 🛣️ Router Setup
 
-???+ example
-    Don't like reading documentation? Then look at [our examples](https://github.com/syngenta/acai-js-docs/blob/main/examples/apigateway) which can run locally! :nerd:
+???+ example "🎓 Hands-on Example"
+    Prefer to learn by doing? Explore the [runnable API Gateway examples](https://github.com/syngenta/acai-js-docs/blob/main/examples/apigateway) and see the router in action.
 
 
-### 1. Configure the Lambda
+### 1️⃣ Configure the Lambda
 
 === "Serverless Framework"
 
@@ -26,151 +26,57 @@ functions:
                 method: ANY    
 ```
 
-### 2. Configure the Router
+### 2️⃣ Configure the Router
 
-There are three routing modes: `directory`, `pattern` and `list`; `directory` and `pattern` routing mode requires your project files to be placed in a particular way; `list` does not require any structure, as you define every route and it's corresponding file. Below are the three ways configure your router:
+Acai ships with a **single pattern-based resolver**. Provide either:
 
-#### Routing Mode: Directory
+- `handlerPath`: directory shorthand that automatically expands to `**/*.js`.
+- `handlerPattern`: full glob expression when you want a custom naming convention.
 
-???+ tip
-    If you are using route params, you will need use dynamic file names which follow this pattern: `{some-variable-name}.js`.
+Both inputs support dynamic segments such as `{userId}.js` and share identical behaviour.
 
-=== "file structure"
+#### 🗂️ Directory-Style Shorthand (`handlerPath`)
 
-    ```
-    ~~ Directory ~~                     ~~ Route ~~
-    ===================================================================
-    📦api/                              |          
-    │---📂handler                       |           
-        │---📜router.js                 |
-        │---📜org.js                    | /org    
-        │---📂grower                    |
-            │---📜index.js              | /grower
-            │---📜{growerId}.js         | /grower/{growerId}
-        │---📂farm                      |
-            │---📜index.js              | /farm
-            │---📂{farmId}              |
-                │---📜index.js          | /farm/{farmId}
-                │---📂field             |
-                    │---📜index.js      | /farm/{farmId}/field
-                    │---📜{fieldId}.js  | /farm/{farmId}/field/{fieldId}
-    ```
+???+ tip "💡 Tip"
+    When you introduce path parameters, name files using the `{param}.js` convention (for example `{farmId}.js`).
 
 === "router.js"
 
     ```js
-    const {Router} = require('@syngenta-digital/Acai').apigateway;
+    const {Router} = require('acai').apigateway;
+
     const router = new Router({
-        routingMode: 'directory',
-        basePath: 'api', // for use with custom apigateway domain
-        handlerPath: 'api/handler'
-    });
-    router.autoLoad() // optional; pulls in files from disc into memory and shares on with concurrent lambdas
-
-    exports.route = async (event) => {
-        return router.route(event);
-    };
-    ```
-
-#### Routing Mode: Pattern
-
-???+ tip
-    You can use any [glob](https://en.wikipedia.org/wiki/Glob_(programming)) pattern you like; common patterns are:
-
-    * `/**/*.controller.js`
-
-    * `/**/handler.*.js`
-
-    * `/**/endpoint.js`
-
-=== "file structure"
-
-    ```
-    ~~ Pattern ~~                               ~~ Route ~~
-    ================================================================================
-    📦api/                                      |
-    │---📜router.js                             |
-    │---📂org                                   |
-        │---📜org.controller.js                 | /org
-        │---📜org.model.js                      |
-        │---📜org.factory.js                    |
-        │---📜org.logic.js                      |
-    │---📂grower                                |
-        │---📜grower.controller.js              | /grower
-        │---📜{growerId}.controller.js          | /grower/{growerId}
-        │---📜grower.model.js                   |
-        │---📜grower.factory.js                 |
-        │---📜grower.logic.js                   |
-    │---📂farm                                  |
-        │---📜farm.controller.js                | /farm
-        │---📜farm.logic.js                     |
-        │---📜farm.model.js                     |
-        │---📂{farmId}                          |
-            │---📜{farmId}.controller.js        | /farm/{farmId}
-            │---📂field                         |
-                │---📜field.controller.js       | /farm/{farmId}/field
-                │---📜{fieldId}.controller.js   | /farm/{farmId}/field/{fieldId}
-                │---📜field.logic.js            |
-                │---📜field.model.js            |
-    ```
-
-=== "router.js"
-
-    ```js
-    const {Router} = require('@syngenta-digital/Acai').apigateway;
-
-    exports.route = async (event) => {
-        const router = new Router({
-            routingMode: 'pattern',
-            basePath: 'api', // for use with custom apigateway domain
-            handlerPattern: 'api/**/*.controller.js'
-        });
-        return router.route(event);
-    };
-    ```
-
-#### Routing Mode: List
-
-???+ tip
-    It may be more maintainable to store your routes list in a separate file, this example does not have that for brevity
-
-???+ warning
-    Even though you are matching your files to your routes, the handler files must have functions that match HTTP method (see endpoint examples here)
-
-???+ danger
-    This is not the preferred routing mode to use; this can lead to a sloppy, unpredictable project architecture which will be hard to maintain and extend. This is *NOT RECOMMENDED*.
-
-=== "file structure"
-
-    ```
-    File structure doesn't matter
-    ======================================================
-    📦api/
-    │---📜router.js
-    ```
-
-=== "router.js"
-
-    ```js
-    const {Router} = require('@syngenta-digital/Acai').apigateway;
-    const router = new Router({
-        routingMode: 'list',
-        basePath: 'api', // for use with custom apigateway domain
-        handlerList: {
-            'GET::grower': 'api/routes/grower.js',
-            'POST::farm': 'api/routes/farm.js',
-            'PUT:farm/{farmId}/field/{fieldId}': 'api/routes/farm-field.js'
-        }
+        basePath: 'api',               // optional: useful with custom domains
+        handlerPath: 'api/handler'     // auto-expands to api/handler/**/*.js
     });
 
-    router.autoLoad() // optional; pulls in files from disc into memory and shares on with concurrent lambdas
-    exports.route = async (event) => {
-        return router.route(event);
-    };
+    router.autoLoad(); // optional cache shared across warm Lambdas
+
+    exports.route = async (event) => router.route(event);
     ```
 
+#### 🧵 Custom Glob (`handlerPattern`)
 
-### 3. Configure the Endpoint File
+???+ tip "🧠 Pattern Ideas"
+    Common globs include:
+
+    * `api/**/*.controller.js`
+    * `src/**/handler.*.js`
+    * `services/**/endpoint.js`
+
+=== "router.js"
+
+    ```js
+    const {Router} = require('acai').apigateway;
+    const router = new Router({
+        basePath: 'api',
+        handlerPattern: 'api/**/*.controller.js'
+    });
+
+    exports.route = async (event) => router.route(event);
+    ```
+
+### 3️⃣ Configure the Endpoint File
 
 Every endpoint file should contain a function which matches an [HTTP method](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods) in lower case. Most common are `post`, `get`, `put`, `patch`, `delete`, but this library does support custom methods, if you so choose. As long as the method of the request matches the function name, it will work.
 
@@ -200,7 +106,7 @@ exports.delete = async (request, response) => {
     return response;
 };
 
-// this is a non-compliant, custom http method; this will work.
+// Example of a non-standard method - still works if the request method matches.
 exports.query = async (request, response) => {
     response.body = [{query: true}];
     return response;

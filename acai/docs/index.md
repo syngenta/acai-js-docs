@@ -1,17 +1,17 @@
-# Acai
-DRY, configurable, declarative node library for working with Amazon Web Service Lambdas.
+# 🫐 Acai
 
-## Features
-* Highly configurable apigateway internal router
-* Openapi schema adherence for all event types
-* Extensible and customizable middleware for validation and other tasks
-* DRY coding interfaces without the need of boilerplate
-* Ease-of-use with the [serverless framework](https://www.serverless.com/)
-* Local Development support
-* Happy Path Programming (See Philosophy below)
+**Auto-loading, self-validating, minimalist JavaScript library for Amazon Web Service Lambdas.**
 
-## Philosophy
+## 🚀 Features
+- Highly configurable API Gateway router powered by a unified glob resolver
+- OpenAPI validation for events and responses across API Gateway, S3, SQS, and DynamoDB
+- Extensible middleware hooks (`beforeAll`, `afterAll`, `withAuth`, endpoint `before`/`after`)
+- DRY, declarative handler patterns that minimise boilerplate
+- Seamless local development and testing experience
+- Embraces the Happy Path Programming philosophy—validate first, then focus on business logic
 
-The Acai philosophy is to provide a dry, configurable, declarative library for use with the amazon lambdas, which encourages Happy Path Programming (HPP).
+## 💡 Happy Path Programming
 
-Happy Path Programming is an idea in which inputs are all validated before operated on. This ensures code follows the happy path without the need for mid-level, nested exceptions and all the nasty exception handling that comes with that. The library uses layers of customizable middleware options to allow a developer to easily dictate what constitutes a valid input, without nested conditionals, try/catch blocks or other coding blocks which distract from the happy path that covers the majority of that codes intended operation.
+Acai encourages **Happy Path Programming (HPP)**: design your flows so inputs are validated up front, letting business logic remain clean and optimistic while error handling is centralised. No more nested conditionals or repeated try/catch blocks—just the straight path to the outcome you expect.
+
+> Need a fully typed experience? Explore the companion TypeScript package [**acai-ts**](https://www.npmjs.com/package/acai-ts).

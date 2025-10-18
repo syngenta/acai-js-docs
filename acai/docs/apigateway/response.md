@@ -1,16 +1,16 @@
 ---
-title: Response
+title: "📤 Response"
 description: Acai Response Object
 ---
 
-# Response Object
+# 📤 Response Object
 
 By default, every endpoint function will receive an instance of the `ResponseClient` class (aka `response`) as the second argument of their function. This response object is meant to provide consistency to HTTP response codes and error signatures. Below is a list and examples of all the properties of the `response`:
 
-???+ example
+???+ example "🎓 Hands-on Example"
     Don't like reading documentation? Then look at [our examples](https://github.com/syngenta/acai-js-docs/blob/main/examples/apigateway) which can run locally! :nerd:
 
-### Response Properties
+## 📋 Response Properties
 
 | property                                                        | type    | description                                                   |
 |-----------------------------------------------------------------|---------|---------------------------------------------------------------|
@@ -23,7 +23,7 @@ By default, every endpoint function will receive an instance of the `ResponseCli
 | [`hasError`]({{web.url}}/apigateway/response/#responsehaserror) | boolean | simple property to check if response already has errors in it |
 
 
-#### `response.headers`
+#### 🔹 `response.headers`
 
 ```js
 response.headers = {key: 'status', value: 'ok'};
@@ -38,7 +38,7 @@ console.log(response.headers);
 }
 ```
 
-#### `response.code`
+#### 🔹 `response.code`
 
 ```js
 response.code = 418;
@@ -49,7 +49,7 @@ console.log(response.code);
 418
 ```
 
-#### `response.body`
+#### 🔹 `response.body`
 
 ???+ info
     This will automatically convert the body to json if possible when called.
@@ -63,7 +63,7 @@ console.log(response.body);
 '{"someKey":"someValue"}'
 ```
 
-#### `response.rawBody`
+#### 🔹 `response.rawBody`
 
 ???+ info
     This will NOT automatically convert the body to json if possible when called. This is great when working with an `afterAll` method that wants to mutate the body of the response before returning to the user.
@@ -79,7 +79,7 @@ console.log(response.rawBody);
 }
 ```
 
-#### `response.compress`
+#### 🔹 `response.compress`
 
 ???+ info
     This will compress whatever is in the body property.
@@ -91,7 +91,7 @@ console.log(response.body);
 // example output: this will gzip and compress the body.
 ```
 
-#### `response.setError(key, value)`
+#### 🔹 `response.setError(key, value)`
 
 ```js
 const someKey = 'abc123';
@@ -116,7 +116,7 @@ console.log(response.rawBody);
 }
 ```
 
-#### `response.hasError`
+#### 🔹 `response.hasError`
 
 ```js
 response.setError('user', `your access is denied`);

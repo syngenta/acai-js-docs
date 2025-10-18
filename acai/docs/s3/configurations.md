@@ -1,16 +1,16 @@
 ---
-title: Configurations
+title: "⚙️ S3 Configurations"
 description: Configure S3 Acai Events
 ---
 
-# S3 Event Configurations
+# ⚙️ S3 Configurations
 
 The S3 event will automatically handle many common things done when eventing off a S3 event. Developers then have the ability to further extend that functionality with custom middleware. Below is a full list of all the configurations available and examples of their use.
 
-???+ examples
+???+ example "🎓 Hands-on Example"
     Don't like reading documentation? Then look at [our examples,](https://github.com/syngenta/acai-js-docs/blob/main/examples/s3) which can be deployed in 1 command into your AWS account! :nerd:
 
-### Configuration Options
+## 📋 Configuration Options
 
 | option                | type       | required | default                        | description                                                               |
 |-----------------------|------------|----------|--------------------------------|---------------------------------------------------------------------------|
@@ -26,7 +26,7 @@ The S3 event will automatically handle many common things done when eventing off
 | **`schemaPath`**      | str        | no       | null                           | file path pointing to the location of the openapi.yml file                |
 | **`validationError`** | bool       | no       | false                          | will raise exception if validation of record fails                        |
 
-### Example: S3 Configuration Options
+## 🧪 Example: S3 Configuration
 
 ```js
 const EventClient = require('acai-js').s3.Event;

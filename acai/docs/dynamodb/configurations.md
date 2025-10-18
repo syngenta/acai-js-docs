@@ -1,16 +1,16 @@
 ---
-title: Configurations
+title: "⚙️ DynamoDB Configurations"
 description: Configure DynamoDB Acai Events
 ---
 
-# DynamoDB Event Configurations
+# ⚙️ DynamoDB Configurations
 
 The Dynamodb event will automatically handle many common things done when eventing off a DynamoDB stream. Developers then have the ability to further extend that functionality with custom middleware. Below is a full list of all the configurations available and examples of their use.
 
-???+ examples
+???+ example "🎓 Hands-on Example"
     Don't like reading documentation? Then look at [our examples,](https://github.com/syngenta/acai-js-docs/blob/main/examples/dynamodb) which can be deployed in 1 command into your AWS account! :nerd:
 
-### Configuration Options
+## 📋 Configuration Options
 
 | option                | type       | required | default                        | description                                                               |
 |-----------------------|------------|----------|--------------------------------|---------------------------------------------------------------------------|
@@ -23,7 +23,7 @@ The Dynamodb event will automatically handle many common things done when eventi
 | **`schemaPath`**      | str        | no       | null                           | file path pointing to the location of the openapi.yml file                |
 | **`validationError`** | bool       | no       | false                          | will raise exception if validation of record fails                        |
 
-### Example: DynamoDB Configuration Options
+## 🧪 Example: DynamoDB Configuration
 
 ```js
 const EventClient = require('@syngenta-digital/Acai').dynamodb.Event;

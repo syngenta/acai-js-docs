@@ -1,16 +1,16 @@
 ---
-title: Configurations
+title: "⚙️ SNS/SQS Configurations"
 description: Configure SNS/SQS Acai Events
 ---
 
-# SNS/SQS Event Configurations
+# ⚙️ SNS/SQS Configurations
 
 The SNS/SQS event will automatically handle many common things done when eventing off an SNS/SQS stream. Developers then have the ability to further extend that functionality with custom middleware. Below is a full list of all the configurations available and examples of their use.
 
-???+ examples
+???+ example "🎓 Hands-on Example"
     Don't like reading documentation? Then look at [our examples,](https://github.com/syngenta/acai-js-docs/blob/main/examples/sns-sqs) which can be deployed in 1 command into your AWS account! :nerd:
 
-### Configuration Options
+## 📋 Configuration Options
 
 | option                | type       | required | default | description                                                       |
 |-----------------------|------------|----------|---------|-------------------------------------------------------------------|
@@ -21,7 +21,7 @@ The SNS/SQS event will automatically handle many common things done when eventin
 | **`schemaPath`**      | str        | no       | null    | file path pointing to the location of the openapi.yml file        |
 | **`validationError`** | bool       | no       | false   | will raise exception if validation of record fails                |
 
-### Example: SNS/SQS Configuration Options
+## 🧪 Example: SNS/SQS Configuration
 
 ```js
 const EventClient = require('@syngenta-digital/Acai').sqs.Event;

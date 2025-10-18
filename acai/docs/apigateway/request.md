@@ -1,16 +1,16 @@
 ---
-title: Request
+title: "📥 Request"
 description: Acai Request Object
 ---
 
-# Request Object
+# 📥 Request Object
 
 By default, every endpoint function will receive an instance of the `RequestClient` class (aka `request`) as the first argument of their function. This `request` has a lot of properties which will do common things automatically, but still allows the developer to override those operations if they deem necessary. Below is a list and examples of all the properties of the `request`:
 
 ???+ example
     Don't like reading documentation? Then look at [our examples](https://github.com/syngenta/acai-js-docs/blob/main/examples/apigateway) which can run locally! :nerd:
 
-### Request Properties
+## 📋 Request Properties
 
 | property                                                            | type   | mutable | description                                                   |
 |---------------------------------------------------------------------|--------|---------|---------------------------------------------------------------|
@@ -31,7 +31,7 @@ By default, every endpoint function will receive an instance of the `RequestClie
 | [`context`]({{web.url}}/apigateway/request/#requestcontext)         | object | yes     | mutable request context to assigned and pass around           |
 | [`event`]({{web.url}}/apigateway/request/#requestevent)             | object | no      | the full event originally coming from the lambda              |
 
-#### `request.method`
+#### 🔹 `request.method`
 
 ```javascript
 console.log(request.method);
@@ -40,7 +40,7 @@ console.log(request.method);
 'get'
 ```
 
-#### `request.resource`
+#### 🔹 `request.resource`
 
 ```js
 
@@ -51,7 +51,7 @@ console.log(request.resource);
 
 ```
 
-#### `request.authorizer`
+#### 🔹 `request.authorizer`
 
 ???+ tip
     This is only useful if you are using an external authorizer with your lambda.
@@ -71,7 +71,7 @@ console.log(request.authorizer);
 
 ```
 
-#### `request.headers`
+#### 🔹 `request.headers`
 
 ```js
 
@@ -84,7 +84,7 @@ console.log(request.headers);
 }
 ```
 
-#### `request.params`
+#### 🔹 `request.params`
 
 ???+ info
     This combines both path parameters and query string parameters, nested in one object.
@@ -104,7 +104,7 @@ console.log(request.params);
 }
 ```
 
-#### `request.queryParams`
+#### 🔹 `request.queryParams`
 
 ```js
 
@@ -116,7 +116,7 @@ console.log(request.queryParams);
 }
 ```
 
-#### `request.pathParams`
+#### 🔹 `request.pathParams`
 
 ```js
 
@@ -128,7 +128,7 @@ console.log(request.pathParams);
 }
 ```
 
-#### `request.route`
+#### 🔹 `request.route`
 
 ???+ info
     This will provide the route with the path param variables included
@@ -141,7 +141,7 @@ console.log(request.route);
 'grower/{id}'
 ```
 
-#### `request.path`
+#### 🔹 `request.path`
 
 ???+ info
     This will provide the route with the path param values replacing the variables
@@ -154,7 +154,7 @@ console.log(request.path);
 'grower/1'
 ```
 
-#### `request.json`
+#### 🔹 `request.json`
 
 ???+ warning
     This will raise an unhandled exception if the body is not json compatible
@@ -169,7 +169,7 @@ console.log(request.json);
 }
 ```
 
-#### `request.xml`
+#### 🔹 `request.xml`
 
 ???+ warning
     This will raise an unhandled exception if the body is not xml compatible
@@ -185,7 +185,7 @@ console.log(request.xml);
 ```
 
 
-#### `request.graphql`
+#### 🔹 `request.graphql`
 
 ???+ info
     This is graphql string since there is no object equivalent; you can pass this directly to your graphql resolver
@@ -202,7 +202,7 @@ console.log(request.graphql);
 }'
 ```
 
-#### `request.body`
+#### 🔹 `request.body`
 
 ???+ tip
     This is the safest way to get the body of the request. It will use the `content-type` header to determine the data sent and convert it; if the data can't be converted for whatever reason it will catch the error and return the raw body provided unconverted.
@@ -218,7 +218,7 @@ console.log(request.body);
 ```
 
 
-#### `request.raw`
+#### 🔹 `request.raw`
 
 ```js
 
@@ -228,7 +228,7 @@ console.log(request.raw);
 ```
 
 
-#### `request.context`
+#### 🔹 `request.context`
 
 ???+ tip
     This is the only mutable property of the request, to be used by any of the `before` or `beforeAll` middleware options
@@ -244,7 +244,7 @@ console.log(request.context);
 }
 ```
 
-#### `request.event`
+#### 🔹 `request.event`
 
 ???+ warning
     This is the original full request. Not advisable to use this as defeats the purpose of the entire Acai :smile:. In addition, you don't want to mutate this object and potentially mess up the entire router.

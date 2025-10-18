@@ -1,11 +1,12 @@
 ---
-title: S3
+title: "🪣 S3"
 description: Use Acai with S3 Events
 ---
 
+# 🪣 S3
 Event handler for Amazon S3 Bucket Events.
 
-## Features
+## ✨ Features
 
 * Automatically convert JSON files to JSON objects
 * Automatically convert CSV files to JSON objects

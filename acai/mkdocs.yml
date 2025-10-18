@@ -3,38 +3,36 @@ site_url: https://syngenta.github.io/acai-js-docs
 site_author: Paul Cruse III
 site_dir: ../docs
 nav:
-    - Home: index.md
-    - Tutorials:
-        - demo.md
-    - install.md
-    - Event Handlers:
-        - APIGateway:
+    - "🏠 Home": index.md
+    - "📦 Install": install.md
+    - "⚙️ Event Handlers":
+        - "🚦 API Gateway":
             - apigateway/index.md
-            - Router:
+            - "🛣️ Router":
                 - apigateway/router/setup.md
                 - apigateway/router/configurations.md
-            - EndPoint:
+            - "🧩 Endpoint":
                 - apigateway/endpoint/setup.md
                 - apigateway/endpoint/configurations.md
             - apigateway/request.md
             - apigateway/response.md
-        - DynamoDB:
+        - "🗃️ DynamoDB":
             - dynamodb/index.md
             - dynamodb/configurations.md
             - dynamodb/record.md
-        - S3:
+        - "🪣 S3":
             - s3/index.md
             - s3/configurations.md
             - s3/record.md
-        - SNS/SQS:
+        - "✉️ SNS/SQS":
             - sqs/index.md
             - sqs/configurations.md
             - sqs/record.md
-    - common/logger.md
-    - changes.md
-    - NPM Registry: https://www.npmjs.com/package/acai
-    - Github Repository: https://github.com/syngenta/acai-js
-    - Issues: https://github.com/syngenta/acai-js/issues
+    - "🛠️ Logger": common/logger.md
+    - "📝 Changes": changes.md
+    - "🛒 NPM Registry": https://www.npmjs.com/package/acai
+    - "💻 Github Repository": https://github.com/syngenta/acai-js
+    - "🐞 Issues": https://github.com/syngenta/acai-js/issues
 theme:
     name: material
     logo: https://raw.githubusercontent.com/syngenta/acai-js-docs/main/logos/logo-icon-docs.png

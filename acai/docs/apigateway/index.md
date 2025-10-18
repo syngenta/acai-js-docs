@@ -1,14 +1,18 @@
 ---
-title: APIGateway
-description: Use Acai with APIGateway
+title: "🚦 API Gateway"
+description: Use Acai with API Gateway
 ---
 
-Event handler for Amazon APIGateway REST & GraphQL.
+# 🚦 API Gateway
 
-## Features
+Acai simplifies API Gateway handlers by combining a pattern-based router, middleware pipeline, and validation utilities.
 
-* Configurable router based on 3 common routing patterns
-* Built-in request validation using standard OpenAPI schema
-* Easily validate request in modular and declarative way without any additional code
-* Able to easily extend with custom middleware at both app and per-endpoint levels
-* Support for CORS, binary and Gzip compression
+## ✨ Key Features
+
+- Unified glob resolver (`handlerPath` or `handlerPattern`) with support for dynamic segments
+- Built-in OpenAPI validation for requests and responses
+- Composable middleware hooks at both application and endpoint levels
+- First-class support for CORS, binary payloads, and gzip compression
+- Works equally well for REST or GraphQL style APIs
+
+Continue to [Router Setup](router/setup.md) to get started.

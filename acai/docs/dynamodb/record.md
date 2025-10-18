@@ -1,16 +1,16 @@
 ---
-title: Record
+title: "📄 DynamoDB Record"
 description: Review DynamoDB Record Structure
 ---
 
-# DynamoDB Record Object
+# 📄 DynamoDB Record
 
 The DynamoDB event will by default provide instances of `record` classes which will be easier to work with then a standard lambda event record object. This is the same object which will be passed down to the `dataClass`, if you provide on in your configuration. Below is a list of all the properties and example outputs for the DynamoDB event record:
 
-???+ examples
+???+ example "🎓 Hands-on Example"
     Don't like reading documentation? Then look at [our examples,](https://github.com/syngenta/acai-js-docs/blob/main/examples/dynamodb) which can be deployed in 1 command into your AWS account! :nerd:
 
-### Record Properties
+## 📋 Record Properties
 
 | property                                                               | type   | description                                          |
 |------------------------------------------------------------------------|--------|------------------------------------------------------|
@@ -31,7 +31,7 @@ The DynamoDB event will by default provide instances of `record` classes which w
 | **[`streamType`]({{web.url}}/node/dynamodb/record/#recordstreamtype)** | str    | the stream view type                                 |
 | **[`version`]({{web.url}}/node/dynamodb/record/#recordversion)**       | str    | the event version                                    |
 
-#### `record.region`
+#### 🔹 `record.region`
 
 ```javascript
 console.log(record.region);
@@ -40,7 +40,7 @@ console.log(record.region);
 'us-east-2'
 ```
 
-#### `record.id`
+#### 🔹 `record.id`
 
 ```javascript
 console.log(record.id);
@@ -49,7 +49,7 @@ console.log(record.id);
 '9a37c0d03eb60f7cf70cabc823de9907'
 ```
 
-#### `record.name`
+#### 🔹 `record.name`
 
 ```javascript
 console.log(record.name);
@@ -58,7 +58,7 @@ console.log(record.name);
 'INSERT'
 ```
 
-#### `record.source`
+#### 🔹 `record.source`
 
 ```javascript
 console.log(record.source);
@@ -67,7 +67,7 @@ console.log(record.source);
 'aws:dynamodb'
 ```
 
-#### `record.keys`
+#### 🔹 `record.keys`
 
 ???+ info
     This is converted from the original DDB JSON to standard json
@@ -81,7 +81,7 @@ console.log(record.keys);
 }
 ```
 
-#### `record.oldImage`
+#### 🔹 `record.oldImage`
 
 ???+ info
     This is converted from the original DDB JSON to standard json
@@ -95,7 +95,7 @@ console.log(record.oldImage);
 }
 ```
 
-#### `record.newImage`
+#### 🔹 `record.newImage`
 
 ???+ info
     This is converted from the original DDB JSON to standard json
@@ -109,7 +109,7 @@ console.log(record.newImage);
 }
 ```
 
-#### `record.body`
+#### 🔹 `record.body`
 
 ???+ info
     This is converted from the original DDB JSON to standard json from `newImage`
@@ -123,7 +123,7 @@ console.log(record.body);
 }
 ```
 
-#### `record.operation`
+#### 🔹 `record.operation`
 
 ```javascript
 console.log(record.operation);
@@ -132,7 +132,7 @@ console.log(record.operation);
 'create'
 ```
 
-#### `record.sourceARN`
+#### 🔹 `record.sourceARN`
 
 ```javascript
 console.log(record.sourceARN);
@@ -141,7 +141,7 @@ console.log(record.sourceARN);
 'arn:aws:dynamodb:us-east-1:771875143460:table/test-example/stream/2019-10-04T23:18:26.340'
 ```
 
-#### `record.version`
+#### 🔹 `record.version`
 
 ```javascript
 console.log(record.version);
@@ -150,7 +150,7 @@ console.log(record.version);
 '1.1'
 ```
 
-#### `record.streamType`
+#### 🔹 `record.streamType`
 
 ```javascript
 console.log(record.streamType);
@@ -159,7 +159,7 @@ console.log(record.streamType);
 'NEW_AND_OLD_IMAGES'
 ```
 
-#### `record.size`
+#### 🔹 `record.size`
 
 ```javascript
 console.log(record.size);
@@ -168,7 +168,7 @@ console.log(record.size);
 1124
 ```
 
-#### `record.created`
+#### 🔹 `record.created`
 
 ```javascript
 console.log(record.created);
@@ -177,7 +177,7 @@ console.log(record.created);
 1538695200.0 //unix timestamp
 ```
 
-#### `record.identity`
+#### 🔹 `record.identity`
 
 ```javascript
 console.log(record.identity);
@@ -189,7 +189,7 @@ console.log(record.identity);
 }
 ```
 
-#### `record.expired`
+#### 🔹 `record.expired`
 
 ```javascript
 console.log(record.expired);

@@ -1,19 +1,19 @@
 ---
-title: 2.0 Breaking Changes
-description: The changes to Acai in version 2.0
+title: "📝 Breaking Changes"
+description: Key updates in Acai 2.0
 ---
 
-## Changes to the Acai from 1.x to 2.0
+# 📝 Breaking Changes from 1.x to 2.0
 
-In version 2.0 we have added a lot of cool new features, but that does require deprecating some old things. Below is a list of all the changes:
+Acai 2.0 introduces new capabilities and a few necessary deprecations. The tables below summarise what changed and how to migrate.
 
-???+ tip
-    If you don't want to make the changes yourself manually, we have a script which will make the changes for you. Just run this command in your terminal from the root of the directory of the project you want to upgrade:
+???+ tip "⚙️ Upgrade Script"
+    Want to automate the migration? Run the script below from the root of your project:
     ```bash
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/syngenta/acai-js-docs/main/scripts/node-upgrade.sh)"
     ```
 
-### APIGateway
+### 🚦 API Gateway
 
 | old              | new                       | description                                                    |
 |------------------|---------------------------|----------------------------------------------------------------|
@@ -21,14 +21,13 @@ In version 2.0 we have added a lot of cool new features, but that does require d
 | `requiredParams` | **`requiredQuery`**       | `requiredQuery` is how you define required query string params |
 | `request.params` | **`request.query`**       | `request.query` is how you access query string params          |
 
-### DynamoDB, S3 & SNS/SQS Event
+### 🔄 DynamoDB, S3 & SNS/SQS Event
 
 | old             | new                            | description                                                                           |
 |-----------------|--------------------------------|---------------------------------------------------------------------------------------|
-| `event.records` | **`await event.getRecords()`** | to use advance validation features, you must the async method; `.records` still works |
+| `event.records` | **`await event.getRecords()`** | To use advanced validation features, call the async method; `.records` still works.    |
 
-
-### DynamoDB Record
+### 🗃️ DynamoDB Record
 
 | old                                  | new                     |
 |--------------------------------------|-------------------------|
@@ -43,7 +42,7 @@ In version 2.0 we have added a lot of cool new features, but that does require d
 | `record.userIdentity`                | **`record.identity`**   |
 | `record.timeToLiveExpired`           | **`record.expired`**    |
 
-### S3 Record
+### 🪣 S3 Record
 
 | old                                   | new                    |
 |---------------------------------------|------------------------|
@@ -56,13 +55,13 @@ In version 2.0 we have added a lot of cool new features, but that does require d
 | `record.responseElements`             | **`record.response`**  |
 | `record.s3SchemaVersion`              | **`record.version`**   |
 
-### SNS/SQS Record
+### ✉️ SNS/SQS Record
 
-| old                                   | new                    |
-|---------------------------------------|------------------------|
-| `record.awsRegion`                    | **`record.region`**    |
-| `record.eventName`                    | **`record.name`**      |
-| `record.eventSource`                  | **`record.source`**    |
-| `record.eventSourceARN`               | **`record.sourceARN`** |
-| `record.messageId`                    | **`record.id`**        |
-| `record.rawBody`                      | **`record.raw`**       |
+| old               | new                    |
+|-------------------|------------------------|
+| `record.awsRegion`| **`record.region`**    |
+| `record.eventName`| **`record.name`**      |
+| `record.eventSource`| **`record.source`**  |
+| `record.eventSourceARN`| **`record.sourceARN`** |
+| `record.messageId`| **`record.id`**        |
+| `record.rawBody`  | **`record.raw`**       |

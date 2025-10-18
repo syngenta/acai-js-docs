@@ -1,16 +1,16 @@
 ---
-title: Record
+title: "📄 S3 Record"
 description: Review S3 Record Structure
 ---
 
-# S3 Record Object
+# 📄 S3 Record
 
 The S3 event will by default provide instances of `record` classes which will be easier to work with then standard lambda event record object. This is the same object which will be passed down to the `dataClass`, if you provide on in your configuration. Below is a list of all the properties and example outputs for the S3 event record:
 
 ???+ example
     Don't like reading documentation? Then look at [our examples](https://github.com/syngenta/acai-js-docs/blob/main/examples/s3) which can be deployed in 1 command into your AWS account! :nerd:
 
-### Record Properties
+## 📋 Record Properties
 
 | property                                                   | type   | description                                                      |
 |------------------------------------------------------------|--------|------------------------------------------------------------------|
@@ -29,7 +29,7 @@ The S3 event will by default provide instances of `record` classes which will be
 | **[`version`]({{web.url}}/s3/record/#record.version)**     | object | the s3 schema version                                            |
 
 
-#### `record.region`
+#### 🔹 `record.region`
 
 ```javascript
 console.log(record.region);
@@ -38,7 +38,7 @@ console.log(record.region);
 'us-east-2'
 ```
 
-#### `record.body`
+#### 🔹 `record.body`
 
 ```javascript
 console.log(record.body);
@@ -47,7 +47,7 @@ console.log(record.body);
 // does require `getObject: true` to be set in the options of the EventClient
 ```
 
-#### `record.bucket`
+#### 🔹 `record.bucket`
 
 ```javascript
 console.log(record.bucket);
@@ -62,7 +62,7 @@ console.log(record.bucket);
 }
 ```
 
-#### `record.id`
+#### 🔹 `record.id`
 
 ```javascript
 console.log(record.id);
@@ -71,7 +71,7 @@ console.log(record.id);
 '828aa6fc-f7b5-4305-8584-487c791949c1'
 ```
 
-#### `record.name`
+#### 🔹 `record.name`
 
 ```javascript
 console.log(record.name);
@@ -80,7 +80,7 @@ console.log(record.name);
 'ObjectCreated:Put'
 ```
 
-#### `record.source`
+#### 🔹 `record.source`
 
 ```javascript
 console.log(record.source);
@@ -89,7 +89,7 @@ console.log(record.source);
 'aws:s3'
 ```
 
-#### `record.time`
+#### 🔹 `record.time`
 
 ```javascript
 console.log(record.time);
@@ -98,7 +98,7 @@ console.log(record.time);
 '2019-09-03T19:37:27.192Z'
 ```
 
-#### `record.key`
+#### 🔹 `record.key`
 
 ```javascript
 console.log(record.key);
@@ -107,7 +107,7 @@ console.log(record.key);
 'some-directory/b21b84d653bb07b05b1e6b33684dc11b.json'
 ```
 
-#### `record.object`
+#### 🔹 `record.object`
 
 ```javascript
 console.log(record.object);
@@ -121,7 +121,7 @@ console.log(record.object);
 }
 ```
 
-#### `record.operation`
+#### 🔹 `record.operation`
 
 ```javascript
 console.log(record.operation);
@@ -130,7 +130,7 @@ console.log(record.operation);
 'create'
 ```
 
-#### `record.request`
+#### 🔹 `record.request`
 
 ```javascript
 console.log(record.request);
@@ -142,7 +142,7 @@ console.log(record.request);
 ```
 
 
-#### `record.response`
+#### 🔹 `record.response`
 
 ```javascript
 console.log(record.response);
@@ -154,7 +154,7 @@ console.log(record.response);
 }
 ```
 
-#### `record.version`
+#### 🔹 `record.version`
 
 ```javascript
 console.log(record.version);

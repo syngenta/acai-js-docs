@@ -1,16 +1,20 @@
 ---
-title: Install
-description: Install Node Acai
+title: "📦 Installation"
+description: Install the Acai JavaScript library
 ---
 
-## Requirements
+# 📦 Installation
 
-* Node 10.10 or higher; [download and install Node.js](https://nodejs.org/en/download/)
-* Access to public [npm registry](https://www.npmjs.com/)
+## ✅ Requirements
 
+- Node.js 22.19.0 or higher — [download the latest release](https://nodejs.org/en/download/)
+- Access to the public [npm registry](https://www.npmjs.com/)
 
-## Installation
+## 🛠️ Install via npm
+
 === "Shell"
 ```bash
-$ npm install acai-js
+npm install acai
 ```
+
+Need TypeScript definitions? Install the companion package [`acai-ts`](https://www.npmjs.com/package/acai-ts) instead.
